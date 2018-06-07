@@ -9623,6 +9623,11 @@ var stream_controller_StreamController = function (_TaskLoop) {
       var stats = data.stats,
           currentLevel = this.levels[fragCurrent.level],
           details = currentLevel.details;
+
+      if (!details) {
+        return;
+      }
+
       logger["b" /* logger */].log('Loaded  ' + fragCurrent.sn + ' of [' + details.startSN + ' ,' + details.endSN + '],level ' + fragCurrent.level);
       // reset frag bitrate test in any case after frag loaded event
       this.bitrateTest = false;
