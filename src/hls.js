@@ -459,7 +459,10 @@ export default class Hls {
    * @type {number}
    */
   get autoLevelCapping () {
-    return this._autoLevelCapping;
+    const levels = this.levels;
+    const maxLevel = (levels && levels.length > 0) ? levels.length - 1 : 0;
+
+    return Math.min(this._autoLevelCapping, maxLevel);
   }
 
   /**
